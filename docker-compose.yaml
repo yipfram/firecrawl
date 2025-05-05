@@ -43,6 +43,8 @@ x-common-env: &common-env
   SEARXNG_ENDPOINT: ${SEARXNG_ENDPOINT}
   SEARXNG_ENGINES: ${SEARXNG_ENGINES}
   SEARXNG_CATEGORIES: ${SEARXNG_CATEGORIES}
+  MAX_RAM: ${MAX_RAM:-0.95}
+  MAX_CPU: ${MAX_CPU:-0.95}
 
 services:
   playwright-service:
@@ -63,6 +65,8 @@ services:
       HOST: "0.0.0.0"
       PORT: ${INTERNAL_PORT:-3002}
       FLY_PROCESS_GROUP: app
+      MAX_RAM: ${MAX_RAM:-0.95}
+      MAX_CPU: ${MAX_CPU:-0.95}
     depends_on:
       - redis
       - playwright-service
@@ -75,6 +79,8 @@ services:
     environment:
       <<: *common-env
       FLY_PROCESS_GROUP: worker
+      MAX_RAM: ${MAX_RAM:-0.95}
+      MAX_CPU: ${MAX_CPU:-0.95}
     depends_on:
       - redis
       - playwright-service
