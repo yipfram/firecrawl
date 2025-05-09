@@ -48,7 +48,7 @@ x-common-env: &common-env
 
 services:
   playwright-service:
-    build: apps/playwright-service-ts
+    image: yipfram/firecrawl-playwright-service:latest
     environment:
       PORT: 3000
       PROXY_SERVER: ${PROXY_SERVER}
