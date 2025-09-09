@@ -79,6 +79,7 @@
     "@devil7softwares/pos": "^1.0.2",
     "@dqbd/tiktoken": "^1.0.17",
     "@google-cloud/storage": "^7.16.0",
+    "@mendable/firecrawl-rs": "workspace:*",
     "@nangohq/node": "^0.40.8",
     "@openrouter/ai-sdk-provider": "^0.4.5",
     "@opentelemetry/auto-instrumentations-node": "^0.62.0",
@@ -166,8 +167,7 @@
     "ws": "^8.18.0",
     "x402-express": "^0.5.3",
     "xml2js": "^0.6.2",
-    "zod": "^3.24.2",
-    "@mendable/firecrawl-rs": "workspace:*"
+    "zod": "^3.24.2"
   },
   "nodemonConfig": {
     "ignore": [
@@ -178,13 +178,14 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@mendable/firecrawl-rs",
       "@sentry-internal/node-cpu-profiler",
       "bigint-buffer",
       "bufferutil",
       "keccak",
       "libpq",
-      "utf-8-validate",
-      "supabase"
+      "supabase",
+      "utf-8-validate"
     ],
     "overrides": {
       "brace-expansion@>=2.0.0 <=2.0.1": "2.0.2"
