@@ -3,8 +3,7 @@ name: firecrawl
 x-common-service: &common-service
   # NOTE: If you don't want to build the service locally,
   # uncomment the build: statement and comment out the image: statement
-  # image: ghcr.io/firecrawl/firecrawl
-  build: apps/api
+  image: ghcr.io/firecrawl/firecrawl
 
   ulimits:
     nofile:
@@ -49,8 +48,7 @@ services:
   playwright-service:
     # NOTE: If you don't want to build the service locally,
     # uncomment the build: statement and comment out the image: statement
-    # image: ghcr.io/firecrawl/playwright-service:latest
-    build: apps/playwright-service-ts
+    image: ghcr.io/firecrawl/playwright-service:latest
     environment:
       PORT: 3000
       PROXY_SERVER: ${PROXY_SERVER}
@@ -76,11 +74,7 @@ services:
     command: node dist/src/harness.js --start-docker
 
   redis:
-    # NOTE: If you want to use Valkey (open source) instead of Redis (source available),
-    # uncomment the Valkey statement and comment out the Redis statement.
-    # Using Valkey with Firecrawl is untested and not guaranteed to work. Use with caution.
     image: redis:alpine
-    # image: valkey/valkey:alpine
 
     networks:
       - backend
