@@ -63,7 +63,7 @@ services:
       - PORT=${INTERNAL_PORT:-3002}
       - WORKER_PORT=${WORKER_PORT:-3005}
       - ENV=local
-      - SERVICE_URL_API_3002
+      - SERVICE_URL_API_3004
     depends_on:
       - redis
       - playwright-service
